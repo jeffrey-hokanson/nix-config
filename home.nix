@@ -31,7 +31,7 @@
 
     oh-my-zsh = {
       enable = true;
-      theme = "agnoster";
+      theme = "";  # starship makes the prompt
       plugins = [ "git" "fzf" "z" ];
     };
 
@@ -39,16 +39,6 @@
       ll = "eza -la";
       cat = "bat";
     };
-
-    initContent = ''
-      prompt_context() {
-        if [[ "$USER" == "jeffreyh" ]]; then
-          prompt_segment magenta white "%m"
-        else
-          prompt_segment magenta white "%n@%m"
-        fi
-      }
-    '';
   };
 
   programs.git = {
@@ -74,7 +64,7 @@
       nvim-lspconfig
     ];
   
-  extraLuaConfig = ''
+  initLua = ''
      local on_attach = function(_, bufnr)
         local opts = { buffer = bufnr, noremap = true, silent = true }
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -95,5 +85,64 @@
 
       vim.diagnostic.config({ virtual_text = true, signs = true, underline = true })
     '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+
+    settings = {
+      format = "$hostname$directory$git_branch$git_status$git_metrics$character";
+
+      hostname = {
+        ssh_only = false;
+        format = "[ $hostname ](bg:purple fg:white)";
+        disabled = false;
+      };
+
+      directory = {
+        format = "[ $path ]($style)";
+        style = "fg:blue bg:white";
+        truncation_length = 0;
+        truncate_to_repo = false;
+      };
+
+      git_branch = {
+        format = "[ $symbol$branch(:$remote_branch) ]($style)";
+        symbol = "  ";
+        style = "fg:#030B1 bg:#7DF9AA";
+      };
+
+      git_status = {
+        format = "[$all_status]($style)";
+        style = "fg:#030B16 bg:#7DF9AA";
+      };
+
+      git_metrics = {
+        format = "([+$added]($added_style))[]($added_style)";
+        added_style = "fg:#1C3A5E bg:#FCF392";
+        deleted_style = "fg:bright-red bg:235";
+        disabled = false;
+      };
+
+      hg_branch = {
+        format = "[ $symbol$branch ]($style)";
+        symbol = " ";
+      };
+
+      cmd_duration = {
+        format = "[  $duration ]($style)";
+        style = "fg:bright-white bg:18";
+      };
+
+      character = {
+        success_symbol = "[ ➜](bold green) ";
+        error_symbol = "[ ✗](#E84D44) ";
+      };
+
+      time = {
+        disabled = true;
+      };
+    };
   };
 }
