@@ -114,7 +114,8 @@
       };
 
       git_status = {
-        format = "[$all_status]($style)";
+        ahead = "⇡$count";
+        format = "[$branch$all_status]($style)";
         style = "fg:#030B16 bg:#7DF9AA";
       };
 
