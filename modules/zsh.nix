@@ -19,8 +19,10 @@
     };
 
     shellAliases = {
+      awk = "gawk";
       ll = "eza -la";
-      cat = "bat";
+      ls = "ls --color=auto";
+      sed = "sed";
     };
   };
 }
