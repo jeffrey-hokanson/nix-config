@@ -7,17 +7,20 @@
     withPython3 = false;
 
     extraPackages = with pkgs; [
-      texlab
-      pyright
+      buf
       clang-tools
+      marksman
       nixd
+      pyright
+      texlab
     ];
 
     plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
+      edge
       gitsigns-nvim
       nord-nvim
-      edge
+      nvim-lint
+      nvim-lspconfig
     ];
 
     initLua = ''
@@ -61,15 +64,41 @@
          end,
        })
 
+       vim.filetype.add({
+        extension = {
+          h   = 'cpp'
+          hpp = 'cpp'
+          cu  = 'cpp'
+          cuh = 'cpp'
+          cpp = 'cpp'
+          ipp = 'ipp'
+        },
+       })
 
        -- LSP setup
-       vim.lsp.config('pyright', { on_attach = on_attach })
-       vim.lsp.config('clangd',  { on_attach = on_attach })
-       vim.lsp.config('nixd',    { on_attach = on_attach })
-       vim.lsp.config('texlab',    { on_attach = on_attach })
-       vim.lsp.enable({ 'pyright', 'clangd', 'nixd', 'texlab' })
+       vim.lsp.config('clangd',   { on_attach = on_attach }, filetypes = {'c', 'cpp', 'cu', 'h', 'hpp', 'ipp', 'proto', 'cuh' )
+       vim.lsp.config('marksman', { on_attach = on_attach })
+       vim.lsp.config('nixd',     { on_attach = on_attach })
+       vim.lsp.config('pyright',  { on_attach = on_attach })
+       vim.lsp.config('texlab',   { on_attach = on_attach })
+       vim.lsp.enable({ 'pyright', 'clangd', 'nixd', 'texlab', 'marksman' })
+
+       -- nvim-lint setup (for linters that aren't full LSP servers)
+       local lint = require('lint')
+       lint.linters_by_ft = {
+         proto = { 'buf_lint' },
+       }
+
+       -- Run the linter on save and when entering/reading a buffer
+       vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufEnter', 'InsertLeave' }, {
+         pattern = '*.proto',
+         callback = function()
+           lint.try_lint()
+         end,
+       })
 
        vim.diagnostic.config({ virtual_text = true, signs = true, underline = true })
+
     '';
   };
 }
