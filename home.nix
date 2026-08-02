@@ -161,8 +161,8 @@
       };
 
       character = {
-        success_symbol = "[ ](fg:yellow bg:green)[](fg:green)";
-        error_symbol = "[ ](fg:yellow bg:red)[](fg:red)";
+        success_symbol = "[](fg:green)";
+        error_symbol = "[](fg:red)";
       };
 
       time = {
