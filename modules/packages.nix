@@ -2,29 +2,31 @@
 
 {
   home.packages = with pkgs; [
-      bat
-      black
-      ruff
-      eza
-      fd
-      fzf
-      git
-      gitoxide
-      htop
-      jq
-      ripgrep
-      tree
-      wget
+    bat
+    black
+    eza
+    fd
+    fzf
+    git
+    gitoxide
+    htop
+    jq
+    nixfmt
+    ripgrep
+    ruff
+    tmux
+    tree
+    wget
 
-      (python3.withPackages (ps: with ps; 
-        [
-          numpy
-          scipy
-          jupyter
-          jupyterlab
-          ipython
-          matplotlib
-        ]
-      ))
-    ];
+    (python3.withPackages (
+      ps: with ps; [
+        numpy
+        scipy
+        jupyter
+        jupyterlab
+        ipython
+        matplotlib
+      ]
+    ))
+  ];
 }

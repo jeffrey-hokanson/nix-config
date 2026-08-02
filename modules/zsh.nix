@@ -10,8 +10,12 @@
 
     oh-my-zsh = {
       enable = true;
-      theme = "";  # starship makes the prompt
-      plugins = [ "git" "fzf" "z" ];
+      theme = ""; # starship makes the prompt
+      plugins = [
+        "git"
+        "fzf"
+        "z"
+      ];
     };
 
     shellAliases = {

@@ -6,7 +6,7 @@
     enableZshIntegration = true;
 
     settings = {
-      format = "$hostname[](fg:purple bg:blue)$directory[](fg:blue bg:green)$git_branch[](fg:green bg:yellow)$git_metrics$git_status$character";
+      format = "$nix_shell$hostname[](fg:purple bg:blue)$directory[](fg:blue bg:green)$git_branch[](fg:green bg:yellow)$git_metrics$git_status$character";
 
       hostname = {
         ssh_only = false;
@@ -29,7 +29,7 @@
 
       git_branch = {
         format = "[ $symbol $branch ]($style)";
-	      symbol = "";
+        symbol = "";
         style = "fg:white bg:green";
       };
 
@@ -49,8 +49,15 @@
       time = {
         disabled = true;
       };
+
+      nix_shell = {
+        disabled = false;
+        format = "[](fg:#030B16 bg:#7B42F6)[ $symbol$name ](bg:#7B42F6 fg:white)[](fg:#7B42F6 bg:#030B16) ";
+        symbol = " ";
+        impure_msg = "impure";
+        pure_msg = "pure";
+      };
     };
   };
-
 
 }

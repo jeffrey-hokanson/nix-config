@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -6,13 +6,13 @@
     ./modules/git.nix
     ./modules/neovim.nix
     ./modules/starship.nix
+    #    ./modules/direnv.nix
     ./modules/zsh.nix
   ];
 
   home.username = "jeffreyh";
   home.homeDirectory = "/Users/jeffreyh";
   home.stateVersion = "25.05";
-
   # Let home-manager manage itself (installs the `home-manager` CLI)
   programs.home-manager.enable = true;
 
