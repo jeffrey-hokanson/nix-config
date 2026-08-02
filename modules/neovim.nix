@@ -7,6 +7,7 @@
     withPython3 = false;
 
     extraPackages = with pkgs; [
+      texlab
       pyright
       clang-tools
       nixd
@@ -65,7 +66,8 @@
        vim.lsp.config('pyright', { on_attach = on_attach })
        vim.lsp.config('clangd',  { on_attach = on_attach })
        vim.lsp.config('nixd',    { on_attach = on_attach })
-       vim.lsp.enable({ 'pyright', 'clangd', 'nixd' })
+       vim.lsp.config('texlab',    { on_attach = on_attach })
+       vim.lsp.enable({ 'pyright', 'clangd', 'nixd', 'texlab' })
 
        vim.diagnostic.config({ virtual_text = true, signs = true, underline = true })
     '';
