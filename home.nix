@@ -126,7 +126,7 @@
     enableZshIntegration = true;
 
     settings = {
-      format = "$hostname[](fg:purple bg:blue)$directory[](fg:blue bg:green)$git_branch$git_metrics$character";
+      format = "$hostname[](fg:purple bg:blue)$directory[](fg:blue bg:green)$git_branch$git_metrics$git_statuscharacter";
 
       hostname = {
         ssh_only = false;
@@ -143,7 +143,7 @@
 
       git_status = {
         style = "fg:black bg:yellow";
-	format = "[$all_status$ahead_behind]($style)";
+        format = "[$all_status$ahead_behind]($style)";
       };
 
       git_branch = {
