@@ -144,6 +144,7 @@
       git_status = {
         style = "fg:black bg:yellow";
         format = "[ ]($style)[$all_status$ahead_behind]($style)[ ]($style)";
+        modified = "";
       };
 
       git_branch = {
@@ -161,8 +162,8 @@
       };
 
       character = {
-        success_symbol = "[](fg:green)";
-        error_symbol = "[](fg:red)";
+        success_symbol = "[](fg:yellow bg:green)[](fg:green)";
+        error_symbol = "[](fg:yellow bg:red)[](fg:red)";
       };
 
       time = {
