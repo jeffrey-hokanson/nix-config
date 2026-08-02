@@ -126,7 +126,7 @@
     enableZshIntegration = true;
 
     settings = {
-      format = "$hostname[](fg:purple bg:blue)$directory[](fg:blue bg:green)$git_branch$git_metrics[ ](fg:yellow)";
+      format = "$hostname[](fg:purple bg:blue)$directory[](fg:blue bg:green)$git_branch$git_metrics";
 
       hostname = {
         ssh_only = false;
@@ -153,7 +153,7 @@
       };
 
       git_metrics = {
-        format = "([](fg:green bg:yellow)[+$added]($added_style))([-$deleted]($deleted_style))";
+        format = "([](fg:green bg:yellow)[+$added]($added_style))([-$deleted]($deleted_style))[ ](fg:yellow)";
         # format = "([+$added]($added_style))[]($added_style)";
         added_style = "bold fg:black bg:yellow";
         deleted_style = "bold fg:red bg:yellow";
