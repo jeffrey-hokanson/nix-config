@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{pkgs, ... }:
 
 {
   home.username = "jeffreyh";
@@ -92,7 +92,7 @@
     enableZshIntegration = true;
 
     settings = {
-      format = "$hostname[](fg:purple bg:blue)$directory[](fg:blue bg:green)$git_branch$git_metrics$character";
+      format = "$hostname[](fg:purple bg:blue)$directory[](fg:blue bg:green)$git_branch$git_status$character";
 
       hostname = {
         ssh_only = false;
