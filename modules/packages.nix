@@ -35,6 +35,7 @@
         jupyterlab
         ipython
         matplotlib
+        snakeviz
       ]
     ))
   ];
