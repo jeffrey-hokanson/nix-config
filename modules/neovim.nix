@@ -66,17 +66,20 @@
 
        vim.filetype.add({
         extension = {
-          h   = 'cpp'
-          hpp = 'cpp'
-          cu  = 'cpp'
-          cuh = 'cpp'
-          cpp = 'cpp'
-          ipp = 'ipp'
+          h   = 'cpp',
+          hpp = 'cpp',
+          cu  = 'cpp',
+          cuh = 'cpp',
+          cpp = 'cpp',
+          ipp = 'ipp',
         },
        })
 
        -- LSP setup
-       vim.lsp.config('clangd',   { on_attach = on_attach }, filetypes = {'c', 'cpp', 'cu', 'h', 'hpp', 'ipp', 'proto', 'cuh' )
+       vim.lsp.config('clangd', { 
+          on_attach = on_attach,
+          filetypes = { 'c', 'cpp', 'cu', 'h', 'hpp', 'ipp', 'proto', 'cuh' },
+       })
        vim.lsp.config('marksman', { on_attach = on_attach })
        vim.lsp.config('nixd',     { on_attach = on_attach })
        vim.lsp.config('pyright',  { on_attach = on_attach })
