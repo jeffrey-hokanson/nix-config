@@ -8,6 +8,7 @@
     ./modules/starship.nix
     ./modules/latex.nix
     ./modules/zsh.nix
+    ./modules/tmux.nix
   ];
 
   home.username = "jeffreyh";
