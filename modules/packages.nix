@@ -11,6 +11,7 @@
     findutils
     fzf
     gawk
+    gnupg
     git
     gitoxide
     gnugrep
@@ -36,6 +37,7 @@
         ipython
         matplotlib
         snakeviz
+        yt-dlp
       ]
     ))
   ];
