@@ -11,15 +11,16 @@
     findutils
     fzf
     gawk
-    gnupg
     git
     gitoxide
     gnugrep
+    gnupg
     gnused
     gnutar
     gnutls
     htop
     jq
+    mpv
     nixfmt
     ripgrep
     ruff
