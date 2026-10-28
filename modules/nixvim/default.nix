@@ -10,6 +10,7 @@
 
   programs.nixvim = {
     enable = true;
+    nixpkgs.useGlobalPackages = true;
     defaultEditor = true;
     withRuby = false;
     withPython3 = false;
