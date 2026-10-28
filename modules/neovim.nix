@@ -88,6 +88,13 @@
          },
          sources = {
            default = { 'lsp', 'path', 'snippets', 'buffer' },
+           per_filetype = {
+             markdown  = { 'lsp', 'path' },
+             tex       = { 'lsp', 'path' },
+             plaintex  = { 'lsp', 'path' },
+             gitcommit = {},
+             text      = {},
+           },
          },
        })
 
