@@ -16,7 +16,9 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
+      blink-cmp
       edge
+      friendly-snippets
       gitsigns-nvim
       nord-nvim
       nvim-lint
@@ -73,6 +75,32 @@
           cpp = 'cpp',
           ipp = 'ipp',
         },
+       })
+
+       -- Completion (blink.cmp)
+       -- LaTeX (texlab) and Markdown (marksman) completions, such as references,
+       -- citations, and links, arrive through the 'lsp' source, and
+       -- friendly-snippets adds snippets for both filetypes.
+       require('blink.cmp').setup({
+         keymap = { preset = 'default' },
+         completion = {
+           documentation = { auto_show = true, auto_show_delay_ms = 200 },
+         },
+         sources = {
+           default = { 'lsp', 'path', 'snippets', 'buffer' },
+           per_filetype = {
+             markdown  = { 'lsp', 'path' },
+             tex       = { 'lsp', 'path' },
+             plaintex  = { 'lsp', 'path' },
+             gitcommit = {},
+             text      = {},
+           },
+         },
+       })
+
+       -- Advertise blink's completion capabilities to every LSP server
+       vim.lsp.config('*', {
+         capabilities = require('blink.cmp').get_lsp_capabilities(),
        })
 
        -- LSP setup
