@@ -25,7 +25,7 @@ Nothing is written to `~/.config/nvim`; nixvim generates the config. To change
 something, edit the module, run `home-manager switch --flake ~/nix-config`, and
 restart Neovim. If something misbehaves, start with `:messages` and `:checkhealth`.
 
-The leader key is Neovim's default, `\`.
+The leader key is Space.
 
 ## Completion
 

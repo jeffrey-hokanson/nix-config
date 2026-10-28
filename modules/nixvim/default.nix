@@ -26,6 +26,8 @@
     # nixvim has no module for the edge colorscheme, so load it as a plain plugin.
     extraPlugins = [ pkgs.vimPlugins.edge ];
     globals = {
+      mapleader = " ";
+      maplocalleader = " ";
       edge_style = "default";
       edge_better_performance = 1;
     };
