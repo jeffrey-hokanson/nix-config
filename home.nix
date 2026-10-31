@@ -4,7 +4,7 @@
   imports = [
     ./modules/packages.nix
     ./modules/git.nix
-    ./modules/neovim.nix
+    ./modules/nixvim
     ./modules/starship.nix
     ./modules/latex.nix
     ./modules/zsh.nix
