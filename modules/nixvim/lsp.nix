@@ -18,16 +18,22 @@
 
         clangd = {
           enable = true;
-          config.filetypes = [
-            "c"
-            "cpp"
-            "cu"
-            "h"
-            "hpp"
-            "ipp"
-            "proto"
-            "cuh"
-          ];
+          config = {
+            cmd = [
+              "clangd"
+              "--query-driver=/nix/store/*/bin/*g++,/nix/store/*/bin/*gcc,/nix/store/*/bin/*clang++,/nix/store/*/bin/*clang,/nix/store/*/bin/*c++,/nix/store/*/bin/*cc"
+            ];
+            filetypes = [
+              "c"
+              "cpp"
+              "cu"
+              "h"
+              "hpp"
+              "ipp"
+              "proto"
+              "cuh"
+            ];
+          };
         };
       };
 

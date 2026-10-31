@@ -8,7 +8,7 @@
     blink-cmp = {
       enable = true;
       settings = {
-        keymap.preset = "default";
+        keymap.preset = "super-tab";
 
         completion.documentation = {
           auto_show = true;
