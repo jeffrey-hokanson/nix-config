@@ -8,11 +8,20 @@
     blink-cmp = {
       enable = true;
       settings = {
-        keymap.preset = "super-tab";
+        keymap = {
+          preset = "enter";
+        };
 
-        completion.documentation = {
-          auto_show = true;
-          auto_show_delay_ms = 200;
+        completion = {
+          documentation = {
+            auto_show = true;
+            auto_show_delay_ms = 200;
+          };
+
+          list.selection = {
+            preselect = false;
+            auto_insert = false;
+          };
         };
 
         sources = {
